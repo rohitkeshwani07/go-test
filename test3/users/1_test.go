@@ -37,3 +37,7 @@ func TestSomething(t *testing.T) {
 	// fail the test
 	t.Fatal("Test failed")
 }
+
+func TestSomething2(t *testing.T) {
+	log.Println("TestSomethingHere22")
+}

@@ -20,7 +20,7 @@ func TestMain(m *testing.M) {
 func TestRunnerTest(t *testing.T) {
 	// Define the test command to run
 	// This will run the "TestTarget" function in the "target_test.go" file
-	cmd := exec.Command("go", "test", "../users", "../users2", "-v", "-args", "test")
+	cmd := exec.Command("gotestsum", "--", "../users", "../users2", "-v", "-args", "test")
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -33,17 +33,3 @@ func TestRunnerTest(t *testing.T) {
 		t.Fatalf("Failed to run target test: %v", err)
 	}
 }
-
-// Example target test file would look like:
-/*
-package target
-
-import (
-	"testing"
-)
-
-func TestTarget(t *testing.T) {
-	// This is the test that will be executed by the runner
-	t.Log("Target test executed successfully")
-}
-*/
