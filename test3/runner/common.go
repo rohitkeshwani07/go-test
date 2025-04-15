@@ -6,17 +6,11 @@ import (
 )
 
 func Setup() {
-	isRunner := false
-	for _, arg := range os.Args {
-		if arg == "test" {
-			isRunner = true
-			break
-		}
+	if IsArgPresent("skipsetup") {
+		return
 	}
 
-	if !isRunner {
-		setup()
-	}
+	setup()
 }
 
 func setup() {
@@ -24,19 +18,22 @@ func setup() {
 }
 
 func Teardown() {
-	isRunner := false
-	for _, arg := range os.Args {
-		if arg == "test" {
-			isRunner = true
-			break
-		}
+	if IsArgPresent("skipsetup") {
+		return
 	}
 
-	if !isRunner {
-		teardown()
-	}
+	teardown()
 }
 
 func teardown() {
 	log.Println("teardown")
+}
+
+func IsArgPresent(arg string) bool {
+	for _, a := range os.Args {
+		if a == arg {
+			return true
+		}
+	}
+	return false
 }

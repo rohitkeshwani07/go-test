@@ -15,12 +15,11 @@ func TestMain(m *testing.M) {
 	os.Exit(code)
 }
 
-// TestRunnerTest demonstrates running another Go test command from a test
 // go clean -testcache && go test ./test3/runner/... -v -run TestRunnerTest
 func TestRunnerTest(t *testing.T) {
 	// Define the test command to run
 	// This will run the "TestTarget" function in the "target_test.go" file
-	cmd := exec.Command("gotestsum", "--", "../users", "../users2", "-v", "-args", "test")
+	cmd := exec.Command("gotestsum", "--", "../users", "../users2", "-v", "-args", "skipsetup")
 
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr

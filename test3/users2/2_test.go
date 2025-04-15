@@ -20,5 +20,4 @@ func TestMain(m *testing.M) {
 
 func TestSomething(t *testing.T) {
 	log.Println("TestSomethingHere2")
-
 }
