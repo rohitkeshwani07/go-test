@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/rohitkeshwani07/go-test/test3/runner"
 )
@@ -32,4 +33,7 @@ func TestMain(m *testing.M) {
 
 func TestSomething(t *testing.T) {
 	log.Println("TestSomethingHere")
+	time.Sleep(10 * time.Second)
+	// fail the test
+	t.Fatal("Test failed")
 }
