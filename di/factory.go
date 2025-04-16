@@ -15,6 +15,6 @@ func RegisterServices(i *do.Injector) {
 
 	do.Provide(i, func(i *do.Injector) (users.IUserService, error) {
 		repo := do.MustInvoke[users.IUserRepository](i)
-		return users.NewUserService(repo.(*users.UserRepository)), nil
+		return users.NewUserService(repo), nil
 	})
 }

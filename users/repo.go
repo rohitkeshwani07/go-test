@@ -2,6 +2,7 @@ package users
 
 import "errors"
 
+//go:generate mockery --name=IUserRepository --output=../mocks
 type IUserRepository interface {
 	GetUser(id string) (*User, error)
 }
